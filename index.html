@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <title>Ejercicios JavaScript</title>
+  </head>
+  <header>
+    <div>
+      <h1>Ejercicios con JavaScript</h1>
+    </div>
+    <div class="alert alert-success" role="alert" style="list-style-type: disc; text-align: left;">
+      <nav>
+        <ul>
+          <li><a href="#ejercicio1" onclick="mostrarFormulario('ejercicio1')">Ejercicio 1 - IMC</a></li>
+          <li><a href="#ejercicio2" onclick="mostrarFormulario('ejercicio2')">Ejercicio 2 - Número de Likes</a></li>
+          <li><a href="#ejercicio3" onclick="mostrarFormulario('ejercicio3')">Ejercicio 3 - Contraseña Válida</a></li>
+          <li><a href="#ejercicio4" onclick="mostrarFormulario('ejercicio4')">Ejercicio 4 - Cálculo de Impuestos</a></li>
+          <li><a href="#ejercicio5" onclick="mostrarFormulario('ejercicio5')">Ejercicio 5 - Imprimir un Arreglo</a></li>
+          <li><a href="#ejercicio6" onclick="mostrarFormulario('ejercicio6')">Ejercicio 6 - Número de Caracteres</a></li>
+          <li><a href="#ejercicio7" onclick="mostrarFormulario('ejercicio7')">Ejercicio 7 - Sumar Arreglo</a></li>
+          <li><a href="#ejercicio8" onclick="mostrarFormulario('ejercicio8')">Ejercicio 8 - Multiplicar Arreglo</a></li>
+          <li><a href="#ejercicio9" onclick="mostrarFormulario('ejercicio9')">Ejercicio 9 - Sumar Arreglo entre Rango</a></li>
+          <li><a href="#ejercicio10" onclick="mostrarFormulario('ejercicio10')">Ejercicio 10 - Encontrar el Número Máximo</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <body>
+
+    <div  id="ejercicio1" style="display: none;">
+        <section>
+          <h2>Ejercicio 1 - IMC</h2>
+        <form onsubmit="calcularIMC(); return false;">
+            <label for="peso">Peso en (kg):</label>
+            <input type="number" id="peso" name="peso" />
+            <br />
+            <label for="altura">Altura en (m):</label>
+            <input type="number" id="altura" name="altura" />
+            <br />
+            <button type="button" onclick="calcularBmi()">Calcular IMC</button>
+            <div class="result">
+                <b><p id="result"></p></b>
+            </div>
+        </form>
+
+        </section>
+    </div>
+    <div  id="ejercicio2" style="display: none;">
+        <section>
+            <h2>Ejercicio 2 - Número de Likes</h2>
+            <form onsubmit="convertirLikes(); return false;">
+            <label for="numeroLikes">Número:</label>
+            <input type="number" id="numeroLikes" name="numeroLikes">
+            <br />
+            <button type="button" onclick="convertirLikes()">Convertir Número</button>
+            <div id="resultadoLikes"><b><p id="resultadoLikes"></p></b></div>
+            </form>
+        </section>
+    </div>
+
+    <div  id="ejercicio3" style="display: none;">
+      <section>
+        <h2>Ejercicio 3 - Validar Contraseña</h2>
+        <form onsubmit="validarContraseña(); return false;">
+          <label for="usuario">Usuario:</label>
+          <input type="text" id="usuario" required><br>
+          <label for="contrasena">Contraseña:</label>
+          <input type="password" id="contrasena" required><br>
+          <button type="submit">Validar Contraseña</button>
+        </form>
+        <p id="validacionResult"></p>
+      </section>
+    </div>
+
+    <div id="ejercicio4" style="display: none;">
+        <section>
+          <h2>Ejercicio 4 - Cálculo de Impuestos</h2>
+          <form onsubmit="calcularImpuestos(); return false;">
+            <label for="edad">Edad:</label>
+            <input type="number" id="edad" required><br>
+            <label for="ingresos">Ingresos:</label>
+            <input type="number" id="ingresos" required><br>
+            <button type="button" onclick="calcularImpuestos()">Calcular Impuestos</button>
+            <div id="impuestosResult"><b><p id="impuestosResult"></p></b></div>
+          </form>
+        </section>
+      </div>
+
+      <div id="ejercicio5" style="display: none;">
+        <section>
+          <h2>Ejercicio 5 - Imprimir un Arreglo</h2>
+          <button onclick="imprimirArreglo([1, 'Hola', 2, 'Mundo'])">Imprimir Arreglo</button>
+          <b><ul id="arregloResult"></ul></b>
+        </section>
+      </div>
+
+        <div  id="ejercicio6" style="display: none;">
+            <section>
+                <h2>Ejercicio 6 - Número de Caracteres</h2>
+                <form onsubmit="contarCaracteres(); return false;">
+                <label for="inputString">Ingrese un string:</label>
+                <input type="text" id="inputString" required><br>
+                <label for="inputCaracter">Ingrese un carácter:</label>
+                <input type="text" id="inputCaracter" maxlength="1" required><br>
+                <button type="submit">Contar Caracteres</button>
+                <div class="caracteresResult"><b><p id="caracteresResult"></p></b></div>
+                </form>
+            </section>
+        </div>
+
+
+        <div id="ejercicio7" style="display: none;">
+            <section>
+                <h2>Ejercicio 7 - Sumar Arreglo</h2>
+                <form onsubmit="sumarArreglo(); return false;">
+                  <label for="inputArray1">Ingrese el arreglo (separe los números por comas):</label>
+                  <input type="text" id="inputArray1" required><br>
+                  <button type="submit">Sumar Arreglo</button>
+                  <div class="sumaResulta"><b><p id="sumaResulta"></p></b></div>
+                </form>
+              </section>
+        </div>
+
+        <div id="ejercicio8" style="display: none;">
+            <section>
+                <h2>Ejercicio 8 - Multiplicar Arreglo</h2>
+                <form onsubmit="multiplicarArreglo(); return false;">
+                  <label for="inputArray2">Ingrese el arreglo (separe los números por comas):</label>
+                  <input type="text" id="inputArray2" required><br>
+                  <button type="submit" onclick="multiplicarArreglo()">Multiplicar Arreglo</button>
+                  <div class="multiplicacionResult"><b><p id="multiplicacionResult"></p></b></div>
+                </form>
+            </section>
+        </div>
+
+
+        <div id="ejercicio9" style="display: none;">
+            <section>
+                <h2>Ejercicio 9 - Sumar Arreglo en Rango</h2>
+                <form onsubmit="sumarArregloBloques(); return false;">
+                  <label for="inputArray3">Ingrese el arreglo (separe los números por comas):</label>
+                  <input type="text" id="inputArray3" required><br>
+                  <label for="inicio">Posición inicial:</label>
+                  <input type="number" id="inicio" required><br>
+                  <label for="fin">Posición final:</label>
+                  <input type="number" id="fin" required><br>
+                  <button type="submit" onclick="sumarArregloBloques()">Sumar Arreglo en Rango</button>
+                  <div><b><p id="sumaResultado"></p></b></div>
+                </form>
+              </section>
+        </div>
+
+
+        <div  id="ejercicio10" style="display: none;">
+            <section>
+                <h2>Ejercicio 10 - Encontrar Máximo en Arreglo</h2>
+                <form onsubmit="encontrarMaximo(); return false;">
+                  <label for="inputArray4">Ingrese el arreglo (separe los números por comas):</label>
+                  <input type="text" id="inputArray4" required><br>
+                  <button type="submit" onclick="encontrarMaximo()">Encontrar Máximo</button>
+                  <div class="maximoResult"><b><p id="maximoResult"></p></b></div>
+                </form>
+              </section>
+        </div>
+    <script src="JavaScript.js"></script>
+  </body>
+</html>
